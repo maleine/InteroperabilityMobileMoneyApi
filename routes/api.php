@@ -3,6 +3,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OTPController;
+use App\Http\Controllers\ExchangeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +28,10 @@ Route::post('archiveUser', [AuthController::class, 'archiveUser']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 //Route pour demander la réinitialisation du mot de passe (envoi d'OTP)
 Route::post('/requestPasswordReset', [AuthController::class, 'requestPasswordReset']);
+//Route::post('/exchange/initiate', [ExchangeController::class, 'initiateExchange']);
 
+    // Route pour confirmer un échange (valider le retrait et l'envoi)
+   // Route::post('/exchange/confirm/{transactionId}', [ExchangeController::class, 'confirmExchange']);
 // Route pour vérifier l'OTP et réinitialiser le mot de passe
 Route::post('/resetPassword', [AuthController::class, 'resetPassword']);
-
+Route::post('/exchangeFunds', [ExchangeController::class, 'exchangeFunds']);
