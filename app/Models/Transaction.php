@@ -19,12 +19,15 @@ class Transaction extends Model
         'balance_after',          // Solde après transaction
         'status',                 // Statut de la transaction (pending, completed, failed)
         'transaction_id',         // ID de transaction de l'API opérateur
-        'error_message',          // Message d'erreur en cas d'échec
+        'error_message',
+        'fee'        // Message d'erreur en cas d'échec
     ];
 
     protected $casts = [
         'amount' => 'decimal:2',
+        'fee' => 'decimal:2',
         'balance_before' => 'decimal:2',
         'balance_after' => 'decimal:2',
+
     ];
 }

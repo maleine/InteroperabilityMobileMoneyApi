@@ -15,7 +15,8 @@ use App\Http\Controllers\ExchangeController;
 |
 */
 
-
+Route::post('/encrypt-pin', [ExchangeController::class, 'handlePinEncryption']);
+Route::post('/transaction/{transaction_id}/confirm', [ExchangeController::class, 'confirmTransactionEchange']);
 Route::post('send-otp', [OTPController::class, 'sendOtp']);
 Route::post('verify-otp1', [AuthController::class, 'verifyOtp1']);
 Route::post('verify-otp', [AuthController::class, 'verifyOtp']);
@@ -35,3 +36,4 @@ Route::post('/requestPasswordReset', [AuthController::class, 'requestPasswordRes
 // Route pour vérifier l'OTP et réinitialiser le mot de passe
 Route::post('/resetPassword', [AuthController::class, 'resetPassword']);
 Route::post('/exchangeFunds', [ExchangeController::class, 'exchangeFunds']);
+
